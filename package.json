@@ -1,4 +1,13 @@
 {
+  "name": "jbaez.io",
+  "version": "0.0.0",
+  "description": "just a site/docker image to allow for go get -u jbaez.io/yeoman",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Juan Baez",
+    "email": "mail@jbaez.io",
+    "url": "https://jbaez.io/"
+  },
   "dependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
