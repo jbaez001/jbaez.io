@@ -1,0 +1,60 @@
+version: '3.7'
+
+services:
+  # deployment: traefik (web proxy)
+  traefik:
+    image: traefik:v2.2
+    command:
+      - "--log.level=WARN"
+      - "--log.filePath=/var/log/traefik.log"
+      - "--accesslog=true"
+      - "--accesslog.filepath=/var/log/access.log"
+      - "--accesslog.bufferingsize=100"
+      - "--api.insecure=false"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=public"
+      - "--entryPoints.metrics.address=:8082"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.tlsChallenge.acme.tlschallenge=true"
+      - "--certificatesresolvers.tlsChallenge.acme.email=REPLACE_WITH_EMAIL"
+      - "--certificatesresolvers.tlsChallenge.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesresolvers.dnsChallenge.acme.dnschallenge=true"
+      - "--certificatesresolvers.dnsChallenge.acme.dnschallenge.provider=vultr"
+      - "--certificatesresolvers.dnsChallenge.acme.dnschallenge.delaybeforecheck=0"
+      - "--certificatesresolvers.dnsChallenge.acme.email=REPLACE_WITH_EMAIL"
+      - "--certificatesresolvers.dnsChallenge.acme.storage=/letsencrypt/acme.json"
+      - "--ping=true"
+    restart: unless-stopped
+    networks:
+      - vlan_web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - v_traefik_certs:/letsencrypt
+      - v_traefik_logs:/var/log
+    environment:
+      VULTR_API_KEY: REPLACE_WITH_VULTR_KEY
+      VULTR_HTTP_TIMEOUT: 10
+
+  # deployment: jbaez.io
+  app_jbaez_io:
+    image: go-get-yeoman:v1
+    restart: unless-stopped
+    networks:
+      - vlan_web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jbaez-io.rule=Host(`jbaez.io`, `{subdomains:(www)}.jbaez.io`)"
+      - "traefik.http.routers.jbaez-io.entrypoints=websecure"
+      - "traefik.http.routers.jbaez-io.tls.certresolver=dnsChallenge"
+
+volumes:
+  # deployment: traefik (web proxy)
+  v_traefik_certs:
+  v_traefik_logs:
