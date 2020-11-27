@@ -10,5 +10,8 @@
     "release:patch": "standard-version --release-as patch",
     "release:major": "standard-version --release-as major",
     "release:tags": "git push --follow-tags origin master"
+  },
+  "devDependencies": {
+    "standard-version": "^9.0.0"
   }
 }
