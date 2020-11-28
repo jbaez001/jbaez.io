@@ -1,6 +1,6 @@
 {
   "name": "jbaez.io",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "just a site/docker image to allow for go get -u jbaez.io/yeoman",
   "license": "Apache-2.0",
   "author": {
@@ -11,9 +11,16 @@
   "dependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "husky": "^4.3.0"
+    "husky": "^4.3.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
   },
   "scripts": {
+    "start": "node ./bin/www",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
