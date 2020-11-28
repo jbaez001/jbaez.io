@@ -2,8 +2,7 @@
 
 ## Starting the site
 ```
-cd deployments/go-get-yeoman
-docker build -t go-get-yeoman:v1 .
+docker build -t jbaez.io:v1 .
 
 cd ..
 docker-compose up -d
