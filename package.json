@@ -9,9 +9,6 @@
     "url": "https://jbaez.io/"
   },
   "dependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "husky": "^4.3.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
@@ -28,6 +25,9 @@
     "release:tags": "git push --follow-tags origin master"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "husky": "^4.3.0",
     "standard-version": "^9.0.0"
   }
 }
