@@ -14,7 +14,6 @@ services:
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--providers.docker.network=public"
-      - "--entryPoints.metrics.address=:8082"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
       - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
@@ -44,10 +43,12 @@ services:
 
   # deployment: jbaez.io
   app_jbaez_io:
-    image: go-get-yeoman:v1
+    image: jbaez.io:v1
     restart: unless-stopped
     networks:
       - vlan_web
+    volumes:
+      - v_jbaez_io:/opt/jbaez.io/data
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.jbaez-io.rule=Host(`jbaez.io`, `{subdomains:(www)}.jbaez.io`)"
@@ -58,3 +59,6 @@ volumes:
   # deployment: traefik (web proxy)
   v_traefik_certs:
   v_traefik_logs:
+
+  # deployment: jbaez.io
+  v_jbaez_io:
