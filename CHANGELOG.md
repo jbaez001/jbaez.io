@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/jbaez001/jbaez.io/compare/v1.0.0...v1.0.1) (2020-11-28)
+
+
+### Bug Fixes
+
+* issues with package.json ([eeea207](https://github.com/jbaez001/jbaez.io/commits/eeea20754ed3327068f5cea674a429d843de048c))
+* missing bin script ([a80e5dc](https://github.com/jbaez001/jbaez.io/commits/a80e5dc59b9d6f3cc9dae54085c96f86570a3a81))
+* missing scripts and dev dependencies ([e580586](https://github.com/jbaez001/jbaez.io/commits/e58058671d0e6560b790e211b957d2da9c18c01c))
+
 ## [1.0.0](https://github.com/jbaez001/jbaez.io/compare/v0.0.0...v1.0.0) (2020-11-28)
 
 

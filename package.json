@@ -1,6 +1,6 @@
 {
   "name": "jbaez.io",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "just a site/docker image to allow for go get -u jbaez.io/yeoman",
   "license": "Apache-2.0",
   "author": {
