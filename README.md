@@ -3,7 +3,5 @@
 ## Starting the site
 ```
 docker build -t jbaez.io:v1 .
-
-cd ..
 docker-compose up -d
 ```
