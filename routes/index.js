@@ -8,8 +8,8 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/yeoman', function(req, res, next) {
-  res.send('<meta name="go-import" content="jbaez.io/yeoman git https://github.com/jbaez001/yeoman.git">' +
-      '<meta name="go-source" content="jbaez.io/yeoman https://github.com/jbaez001/yeoman/ https://github.com/jbaez001/yeoman/tree/master{/dir} https://github.com/jbaez001/yeoman/blob/master{/dir}/{file}#L{line}">')
+  res.send('<meta name="go-import" content="jbaez.io/yeoman git https://git.genscripts.io/jbaez/yeoman.git">' +
+      '<meta name="go-source" content="jbaez.io/yeoman https://git.genscripts.io/jbaez/yeoman/ https://git.genscripts.io/jbaez/yeoman/tree/master{/dir} https://git.genscripts.io/jbaez/yeoman/blob/master{/dir}/{file}#L{line}">')
 
 });
 
